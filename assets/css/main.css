@@ -124,6 +124,7 @@ h3,
 
 .gradient-text {
     background: linear-gradient(120deg, #f4f7fb 0%, #74f2ff 42%, #4f7cff 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -349,18 +350,28 @@ h3,
 }
 
 .workflow-step {
-    position: relative;
-    padding-left: 4.25rem;
+    display: grid;
+    align-content: start;
+    gap: 0.9rem;
+    padding: 1.5rem;
 }
 
-.workflow-step::before {
-    content: attr(data-step);
-    position: absolute;
-    left: 1.25rem;
-    top: 1.2rem;
+.workflow-step-index {
+    display: block;
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1;
     color: var(--cyan);
+}
+
+.workflow-step h3 {
+    margin: 0;
+    line-height: 1.1;
+}
+
+.workflow-step p {
+    margin: 0;
 }
 
 .animate-on-scroll {
@@ -406,6 +417,10 @@ h3,
     .floating-panel {
         transform: scale(0.92);
         transform-origin: center;
+    }
+
+    .workflow-step {
+        padding: 1.25rem;
     }
 
     .hero-brand-badge {
