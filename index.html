@@ -5,434 +5,409 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Voxtenia - Inteligencia Volumétrica para Diagnóstico Crítico. Asistencia diagnóstica de alta precisión mediante IA para MRI, CT y Rayos X.">
-    <title>Voxtenia | Advanced Volumetric Intelligence</title>
+        content="Voxtenia: inteligencia volumetrica para diagnostico critico, interoperabilidad clinica y despliegue soberano para imagenologia avanzada.">
+    <title>Voxtenia | Volumetric Intelligence</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --brand-dark: #0a0f1a;
-            --brand-accent: #00f2ff;
-            --brand-blue: #0066ff;
-        }
-
-        body {
-            background-color: var(--brand-dark);
-            color: #e2e8f0;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .animate-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .glass-card:hover {
-            border-color: var(--brand-accent);
-            transform: translateY(-5px);
-        }
-
-        .text-gradient {
-            background: linear-gradient(to right, #00f2ff, #0066ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 242, 255, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-            z-index: -1;
-            animation: pulse-glow 8s infinite alternate ease-in-out;
-        }
-
-        @keyframes pulse-glow {
-            0% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.7;
-            }
-
-            100% {
-                transform: translate(-50%, -50%) scale(1.1);
-                opacity: 1;
-            }
-        }
-
-        [data-i18n] {
-            transition: opacity 0.2s ease;
-        }
-    </style>
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <script src="./assets/js/app.js" defer></script>
 </head>
 
-<body class="overflow-x-hidden">
+<body>
+    <div class="shell">
+        <nav class="fixed inset-x-0 top-0 z-50 px-4 py-4 md:px-6">
+            <div
+                class="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-slate-950/60 px-4 py-3 backdrop-blur-xl md:px-6">
+                <a href="#" class="flex items-center gap-3">
+                    <div class="brand-mark">
+                        <img src="./favicon.png" alt="Voxtenia logo" class="brand-mark-image">
+                    </div>
+                    <div>
+                        <p class="display-font text-sm font-bold uppercase tracking-[0.35em] text-white">Voxtenia</p>
+                        <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400" data-i18n="nav-tag">
+                            COMMING SOON
+                        </p>
+                    </div>
+                </a>
 
-    <!-- Navegación -->
-    <nav class="fixed w-full z-50 px-6 py-4 bg-opacity-90 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div
-                    class="w-8 h-8 border-2 border-cyan-400 flex items-center justify-center font-bold text-cyan-400 rounded">
-                    V</div>
-                <span class="text-xl font-bold tracking-widest uppercase">Voxtenia</span>
-            </div>
-
-            <div class="flex items-center space-x-4 md:space-x-8">
-                <div class="hidden md:flex space-x-6 text-xs font-medium uppercase tracking-wider">
-                    <a href="#soluciones" data-i18n="nav-sol" class="hover:text-cyan-400 transition">Soluciones</a>
-                    <a href="#tecnologia" data-i18n="nav-tech" class="hover:text-cyan-400 transition">Tecnología</a>
-                    <a href="#interoperabilidad" data-i18n="nav-inter"
-                        class="hover:text-cyan-400 transition">Interoperabilidad</a>
-                </div>
-
-                <!-- Selector de Idioma -->
-                <div class="flex bg-white/5 p-1 rounded-lg border border-white/10">
-                    <button onclick="setLanguage('es')" id="lang-es"
-                        class="px-2 py-1 text-[10px] font-bold rounded transition bg-cyan-500 text-black">ES</button>
-                    <button onclick="setLanguage('en')" id="lang-en"
-                        class="px-2 py-1 text-[10px] font-bold rounded transition text-gray-400 hover:text-white">EN</button>
+                <div class="hidden items-center gap-8 md:flex">
+                    <a href="#capabilities" class="text-sm text-slate-300 transition hover:text-cyan-200"
+                        data-i18n="nav-capabilities">Capacidades</a>
+                    <a href="#workflow" class="text-sm text-slate-300 transition hover:text-cyan-200"
+                        data-i18n="nav-workflow">Workflow</a>
+                    <a href="#stack" class="text-sm text-slate-300 transition hover:text-cyan-200"
+                        data-i18n="nav-stack">Stack</a>
                 </div>
 
-                <a href="#contacto" data-i18n="nav-cta"
-                    class="px-4 py-2 bg-cyan-500 text-black text-xs font-bold rounded hover:bg-cyan-400 transition">Piloto
-                    MVP</a>
+                <div class="flex items-center gap-3">
+                    <div class="flex rounded-full border border-white/10 bg-white/5 p-1">
+                        <button type="button" id="lang-es" data-language="es"
+                            class="rounded-full bg-cyan-300 px-3 py-1.5 text-[11px] font-bold text-slate-950 transition">
+                            ES
+                        </button>
+                        <button type="button" id="lang-en" data-language="en"
+                            class="rounded-full px-3 py-1.5 text-[11px] font-bold text-slate-400 transition hover:text-white">
+                            EN
+                        </button>
+                    </div>
+                    <a href="#contact"
+                        class="hidden rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-cyan-100 transition hover:border-cyan-300/50 hover:bg-cyan-300/15 md:inline-flex"
+                        data-i18n="nav-cta">Solicitar piloto</a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- Hero Section -->
-    <section class="relative pt-40 pb-20 px-6">
-        <div class="hero-glow"></div>
-        <div class="max-w-7xl mx-auto text-center animate-on-scroll">
-            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 tracking-tight">
-                <span data-i18n="hero-t1">Inteligencia</span> <span class="text-gradient"
-                    data-i18n="hero-t2">Volumétrica</span> <br><span data-i18n="hero-t3">para Diagnóstico Crítico</span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed" data-i18n="hero-p">
-                Asistencia diagnóstica de alta precisión mediante IA para MRI, CT y Rayos X. Segmentación automatizada y
-                priorización de hallazgos en tiempo real.
-            </p>
-            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
-                <button class="px-8 py-4 bg-cyan-500 text-black font-bold rounded-lg hover:scale-105 transition"
-                    data-i18n="hero-btn-demo">
-                    Agendar Demo Técnica
-                </button>
-                <button class="px-8 py-4 glass-card font-bold rounded-lg hover:bg-white/5 transition"
-                    data-i18n="hero-btn-api">
-                    Ver Documentación API
-                </button>
-            </div>
-        </div>
-    </section>
+        <main>
+            <section class="px-4 pb-14 pt-32 md:px-6 md:pb-24 md:pt-40">
+                <div class="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+                    <div class="animate-on-scroll">
+                        <span class="eyebrow" data-i18n="hero-eyebrow">COMMING SOON</span>
+                        <h1 class="hero-copy mt-8 max-w-4xl font-bold">
+                            <span data-i18n="hero-line-1">Diagnostico</span>
+                            <span class="gradient-text" data-i18n="hero-line-2">volumetrico</span><br>
+                            <span data-i18n="hero-line-3">con velocidad clinica</span>
+                        </h1>
+                        <p class="muted mt-8 max-w-2xl text-lg leading-8 md:text-xl" data-i18n="hero-body">
+                            Voxtenia convierte imagenes complejas en decisiones accionables: detecta, segmenta y
+                            prioriza hallazgos criticos con una experiencia pensada para equipos radiologicos reales.
+                        </p>
+                        <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+                            <a href="#contact" class="button-primary" data-i18n="hero-primary">Agendar demo clinica</a>
+                            <a href="#stack" class="button-secondary" data-i18n="hero-secondary">Explorar
+                                arquitectura</a>
+                        </div>
 
-    <!-- Métricas -->
-    <section class="py-12 border-y border-white/5 bg-black/20">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center animate-on-scroll">
-            <div>
-                <div class="text-3xl font-bold text-cyan-400">99.2%</div>
-                <div class="text-[10px] text-gray-500 uppercase tracking-widest mt-1" data-i18n="stat-1">Precisión en
-                    Segmentación</div>
-            </div>
-            <div>
-                <div class="text-3xl font-bold text-cyan-400">
-                    < 45s</div>
-                        <div class="text-[10px] text-gray-500 uppercase tracking-widest mt-1" data-i18n="stat-2">Tiempo
-                            de Inferencia</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-cyan-400">DICOM</div>
-                    <div class="text-[10px] text-gray-500 uppercase tracking-widest mt-1" data-i18n="stat-3">Nativo y
-                        Compatible</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-cyan-400">SaMD</div>
-                    <div class="text-[10px] text-gray-500 uppercase tracking-widest mt-1" data-i18n="stat-4">Preparado
-                        para Regulación</div>
-                </div>
-            </div>
-    </section>
+                        <div class="mt-12 grid gap-4 sm:grid-cols-3">
+                            <div class="metric-card line-frame rounded-3xl p-5">
+                                <p class="display-font text-3xl font-bold text-cyan-200">99.2%</p>
+                                <p class="mt-2 text-sm uppercase tracking-[0.22em] text-slate-400"
+                                    data-i18n="hero-metric-1">Precision volumetrica</p>
+                            </div>
+                            <div class="metric-card line-frame rounded-3xl p-5">
+                                <p class="display-font text-3xl font-bold text-cyan-200">&lt;45s</p>
+                                <p class="mt-2 text-sm uppercase tracking-[0.22em] text-slate-400"
+                                    data-i18n="hero-metric-2">Tiempo de inferencia</p>
+                            </div>
+                            <div class="metric-card line-frame rounded-3xl p-5">
+                                <p class="display-font text-3xl font-bold text-cyan-200">DICOM+</p>
+                                <p class="mt-2 text-sm uppercase tracking-[0.22em] text-slate-400"
+                                    data-i18n="hero-metric-3">Integracion nativa</p>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Soluciones -->
-    <section id="soluciones" class="py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-16 text-left border-l-4 border-cyan-500 pl-6">
-                <h2 class="text-3xl font-bold uppercase tracking-wider" data-i18n="sol-title">Módulos Especializados
-                </h2>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 animate-on-scroll">
-                <div class="p-8 glass-card rounded-2xl">
-                    <i class="fa-solid fa-file-medical text-cyan-400 text-3xl mb-6"></i>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="mod1-t">Reporte Automático</h3>
-                    <p class="text-gray-400 text-sm" data-i18n="mod1-p">Generación de borradores radiológicos basados en
-                        detección automática de hallazgos positivos.</p>
-                </div>
-                <div class="p-8 glass-card rounded-2xl">
-                    <i class="fa-solid fa-bolt text-cyan-400 text-3xl mb-6"></i>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="mod2-t">Triaging Urgente</h3>
-                    <p class="text-gray-400 text-sm" data-i18n="mod2-p">Priorización de estudios con sospecha de
-                        hemorragias, neumonía severa o fracturas críticas.</p>
-                </div>
-                <div class="p-8 glass-card rounded-2xl">
-                    <i class="fa-solid fa-microscope text-cyan-400 text-3xl mb-6"></i>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="mod3-t">Segmentación 3D</h3>
-                    <p class="text-gray-400 text-sm" data-i18n="mod3-p">Cálculo automático de volúmenes de órganos y
-                        tumores en MRI y CT de alta resolución.</p>
-                </div>
-                <div class="p-8 glass-card rounded-2xl">
-                    <i class="fa-solid fa-shield-check text-cyan-400 text-3xl mb-6"></i>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="mod4-t">Control de Calidad</h3>
-                    <p class="text-gray-400 text-sm" data-i18n="mod4-p">Detección de artefactos de movimiento o mala
-                        exposición antes del informe final.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="animate-on-scroll">
+                        <div class="hero-board line-frame-strong rounded-[2rem] p-4 md:p-5">
+                            <div class="scanner">
+                                <div class="hero-video-wrap">
+                                    <video class="hero-video" autoplay muted loop playsinline preload="auto" controls>
+                                        <source src="./logo_video.mp4" type="video/mp4">
+                                        Tu navegador no soporta video HTML5.
+                                    </video>
+                                </div>
+                                <div class="scanner-grid"></div>
+                                <div class="scanner-ring r1"></div>
+                                <div class="scanner-ring r2"></div>
+                                <div class="scanner-ring r3"></div>
 
-    <!-- Tecnología -->
-    <section id="tecnologia" class="py-24 px-6 bg-black/30">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center animate-on-scroll">
-            <div>
-                <h2 class="text-4xl font-bold mb-6 italic" data-i18n="tech-title">Built by Engineers, <br>for Doctors.
-                </h2>
-                <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tech-p">
-                    Nuestra arquitectura está diseñada para la escalabilidad y la soberanía de datos. No somos solo una
-                    capa de IA, somos el motor de procesamiento.
-                </p>
-                <ul class="space-y-4">
-                    <li class="flex items-center space-x-3">
-                        <i class="fa-solid fa-check text-cyan-400"></i>
-                        <span data-i18n="tech-li1">Core en Python/PyTorch con MONAI framework.</span>
-                    </li>
-                    <li class="flex items-center space-x-3">
-                        <i class="fa-solid fa-check text-cyan-400"></i>
-                        <span data-i18n="tech-li2">Inferencia acelerada mediante NVIDIA Triton.</span>
-                    </li>
-                    <li class="flex items-center space-x-3">
-                        <i class="fa-solid fa-check text-cyan-400"></i>
-                        <span data-i18n="tech-li3">Microservicios en Docker para despliegue On-Premise.</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="glass-card p-4 rounded-xl overflow-hidden shadow-2xl shadow-cyan-500/10">
-                <div class="bg-gray-900 p-4 rounded-t-lg flex space-x-2">
-                    <div class="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                <div class="hero-brand-badge">
+                                    <img src="./favicon.png" alt="Voxtenia symbol" class="hero-brand-image">
+                                    <div>
+                                        <p class="hero-brand-kicker">COMMING SOON</p>
+                                        <p class="hero-brand-title">COMMING SOON</p>
+                                    </div>
+                                </div>
+
+                                <div class="floating-panel left-4 top-5 w-48 p-4 md:left-8 md:top-8 md:w-56">
+                                    <p class="text-[0.65rem] uppercase tracking-[0.3em] text-cyan-200"
+                                        data-i18n="board-panel-1-tag">COMMING SOON</p>
+                                    <p class="mt-3 display-font text-xl font-bold" data-i18n="board-panel-1-title">
+                                        COMMING SOON
+                                    </p>
+                                    <p class="mt-2 text-sm text-slate-400" data-i18n="board-panel-1-body">
+                                        Hallazgo sospechoso priorizado para lectura inmediata.
+                                    </p>
+                                </div>
+
+                                <div class="floating-panel bottom-5 right-4 w-52 p-4 md:bottom-8 md:right-8 md:w-64">
+                                    <p class="text-[0.65rem] uppercase tracking-[0.3em] text-lime-200"
+                                        data-i18n="board-panel-2-tag">COMMING SOON</p>
+                                    <div class="mt-3 flex items-end justify-between">
+                                        <div>
+                                            <p class="display-font text-4xl font-bold text-lime-200">3D</p>
+                                            <p class="mt-1 text-sm text-slate-400" data-i18n="board-panel-2-body">
+                                                Mascara automatica validable por el medico.
+                                            </p>
+                                        </div>
+                                        <div
+                                            class="rounded-2xl border border-lime-300/20 bg-lime-300/10 px-3 py-2 text-xs font-bold text-lime-100">
+                                            MRI
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="hero-orchestration-bar absolute inset-x-10 bottom-24 rounded-[1.75rem] border border-cyan-300/20 bg-slate-950/55 px-5 py-4 backdrop-blur-lg">
+                                    <div class="flex items-center justify-between gap-4">
+                                        <div>
+                                            <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400"
+                                                data-i18n="board-strip-tag">COMMING SOON</p>
+                                            <p class="mt-1 display-font text-lg font-bold"
+                                                data-i18n="board-strip-title">Inference engine + reporting assist +
+                                                audit trail</p>
+                                        </div>
+                                        <div class="hidden h-3 w-3 rounded-full bg-cyan-300 md:block hero-status-dot">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <pre class="p-6 text-xs font-mono text-cyan-300 overflow-x-auto">
-<code>POST /api/v1/inference/segmentation
+            </section>
+
+            <section class="px-4 py-6 md:px-6">
+                <div class="mx-auto max-w-7xl">
+                    <div class="glow-line"></div>
+                    <div class="grid gap-4 py-6 text-sm uppercase tracking-[0.3em] text-slate-500 md:grid-cols-4">
+                        <div data-i18n="rail-1">COMMING SOON</div>
+                        <div data-i18n="rail-2">COMMING SOON</div>
+                        <div data-i18n="rail-3">COMMING SOON</div>
+                        <div data-i18n="rail-4">COMMING SOON</div>
+                    </div>
+                    <div class="glow-line"></div>
+                </div>
+            </section>
+
+            <section id="capabilities" class="px-4 py-20 md:px-6 md:py-28">
+                <div class="mx-auto max-w-7xl">
+                    <div class="animate-on-scroll max-w-3xl">
+                        <span class="eyebrow" data-i18n="cap-eyebrow">COMMING SOON</span>
+                        <h2 class="section-title mt-8 font-bold" data-i18n="cap-title">
+                            Una landing clara para un producto que no deberia verse generico.
+                        </h2>
+                        <p class="muted mt-6 text-lg leading-8" data-i18n="cap-body">
+                            El mensaje ahora baja mejor: tecnologia robusta, foco clinico y una presencia visual con mas
+                            tension, contraste y jerarquia.
+                        </p>
+                    </div>
+
+                    <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+                        <article class="feature-card line-frame rounded-[1.75rem] p-7 animate-on-scroll">
+                            <div
+                                class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-300/10 text-cyan-200">
+                                <i class="fa-solid fa-wave-square text-xl"></i>
+                            </div>
+                            <h3 class="display-font text-2xl font-bold" data-i18n="feature-1-title">Triage en tiempo
+                                real</h3>
+                            <p class="muted mt-4 leading-7" data-i18n="feature-1-body">
+                                Sube al tope los estudios con patrones criticos y reduce el tiempo muerto entre
+                                adquisicion y lectura.
+                            </p>
+                        </article>
+
+                        <article class="feature-card line-frame rounded-[1.75rem] p-7 animate-on-scroll">
+                            <div
+                                class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-400/10 text-blue-200">
+                                <i class="fa-solid fa-cubes-stacked text-xl"></i>
+                            </div>
+                            <h3 class="display-font text-2xl font-bold" data-i18n="feature-2-title">Segmentacion 3D
+                                util</h3>
+                            <p class="muted mt-4 leading-7" data-i18n="feature-2-body">
+                                Volumenes, mascaras y regiones de interes listos para validacion clinica y seguimiento
+                                longitudinal.
+                            </p>
+                        </article>
+
+                        <article class="feature-card line-frame rounded-[1.75rem] p-7 animate-on-scroll">
+                            <div
+                                class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-lime-300/10 text-lime-200">
+                                <i class="fa-solid fa-file-circle-check text-xl"></i>
+                            </div>
+                            <h3 class="display-font text-2xl font-bold" data-i18n="feature-3-title">Drafting asistido
+                            </h3>
+                            <p class="muted mt-4 leading-7" data-i18n="feature-3-body">
+                                Borradores de reporte con trazabilidad, explicabilidad y espacio para validacion final
+                                del especialista.
+                            </p>
+                        </article>
+
+                        <article class="feature-card line-frame rounded-[1.75rem] p-7 animate-on-scroll">
+                            <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white">
+                                <i class="fa-solid fa-shield-heart text-xl"></i>
+                            </div>
+                            <h3 class="display-font text-2xl font-bold" data-i18n="feature-4-title">Soberania de datos
+                            </h3>
+                            <p class="muted mt-4 leading-7" data-i18n="feature-4-body">
+                                Arquitectura desplegable on-premise o hibrida, con anonimizacion y control operacional
+                                desde el hospital.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="workflow" class="px-4 py-20 md:px-6 md:py-28">
+                <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+                    <div class="animate-on-scroll">
+                        <span class="eyebrow" data-i18n="workflow-eyebrow">Workflow</span>
+                        <h2 class="section-title mt-8 font-bold" data-i18n="workflow-title">
+                            Pensado para entrar en el flujo radiologico, no para vivir aparte.
+                        </h2>
+                        <p class="muted mt-6 text-lg leading-8" data-i18n="workflow-body">
+                            La pagina cuenta la historia del producto en el orden correcto: entrada de estudio,
+                            inferencia, priorizacion, validacion y salida interoperable.
+                        </p>
+                    </div>
+
+                    <div class="space-y-5">
+                        <article class="workflow-step line-frame rounded-[1.75rem] p-6 animate-on-scroll" data-step="01">
+                            <h3 class="display-font text-2xl font-bold" data-i18n="workflow-1-title">Ingreso clinico</h3>
+                            <p class="muted mt-3 leading-7" data-i18n="workflow-1-body">
+                                Recibe estudios DICOM desde PACS o gateway local con reglas por modalidad, urgencia y
+                                protocolo.
+                            </p>
+                        </article>
+
+                        <article class="workflow-step line-frame rounded-[1.75rem] p-6 animate-on-scroll" data-step="02">
+                            <h3 class="display-font text-2xl font-bold" data-i18n="workflow-2-title">Motor de inferencia
+                            </h3>
+                            <p class="muted mt-3 leading-7" data-i18n="workflow-2-body">
+                                Ejecuta modelos de segmentacion, deteccion y scoring con aceleracion GPU y colas
+                                auditables.
+                            </p>
+                        </article>
+
+                        <article class="workflow-step line-frame rounded-[1.75rem] p-6 animate-on-scroll" data-step="03">
+                            <h3 class="display-font text-2xl font-bold" data-i18n="workflow-3-title">Decision asistida
+                            </h3>
+                            <p class="muted mt-3 leading-7" data-i18n="workflow-3-body">
+                                Entrega hallazgos estructurados, prioridad de lectura y soporte para reporte preliminar
+                                sin salir del flujo.
+                            </p>
+                        </article>
+
+                        <article class="workflow-step line-frame rounded-[1.75rem] p-6 animate-on-scroll" data-step="04">
+                            <h3 class="display-font text-2xl font-bold" data-i18n="workflow-4-title">
+                                Salida interoperable
+                            </h3>
+                            <p class="muted mt-3 leading-7" data-i18n="workflow-4-body">
+                                Devuelve resultados a visores, RIS o sistemas externos con trazabilidad y control de
+                                version clinica.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="stack" class="px-4 py-20 md:px-6 md:py-28">
+                <div class="mx-auto max-w-7xl">
+                    <div class="grid gap-8 lg:grid-cols-[1fr_1.05fr]">
+                        <div class="line-frame-strong animate-on-scroll rounded-[2rem] p-8 md:p-10">
+                            <span class="eyebrow" data-i18n="stack-eyebrow">COMMING SOON</span>
+                            <h2 class="section-title mt-8 font-bold" data-i18n="stack-title">
+                                Infraestructura seria, mostrada con una interfaz que tambien lo parece.
+                            </h2>
+                            <p class="muted mt-6 max-w-2xl text-lg leading-8" data-i18n="stack-body">
+                                Se mantiene el discurso tecnico, pero con bloques mas limpios y con un visual de panel
+                                de control que transmite sistema, no plantilla.
+                            </p>
+
+                            <div class="mt-10 grid gap-4 md:grid-cols-2">
+                                <div class="stack-card rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+                                    <p class="text-[0.7rem] uppercase tracking-[0.28em] text-slate-400">Core</p>
+                                    <p class="mt-3 display-font text-xl font-bold">Python / PyTorch / MONAI</p>
+                                </div>
+                                <div class="stack-card rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+                                    <p class="text-[0.7rem] uppercase tracking-[0.28em] text-slate-400">Serving</p>
+                                    <p class="mt-3 display-font text-xl font-bold">NVIDIA Triton + queues</p>
+                                </div>
+                                <div class="stack-card rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+                                    <p class="text-[0.7rem] uppercase tracking-[0.28em] text-slate-400">Deployment</p>
+                                    <p class="mt-3 display-font text-xl font-bold">Docker / On-prem / Hybrid</p>
+                                </div>
+                                <div class="stack-card rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+                                    <p class="text-[0.7rem] uppercase tracking-[0.28em] text-slate-400">Interop</p>
+                                    <p class="mt-3 display-font text-xl font-bold">DICOM / HL7 / FHIR</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="line-frame animate-on-scroll rounded-[2rem] p-4 md:p-6">
+                            <div class="rounded-[1.5rem] border border-white/10 bg-slate-950/80 p-5">
+                                <div class="flex items-center gap-2">
+                                    <span class="h-3 w-3 rounded-full bg-red-400"></span>
+                                    <span class="h-3 w-3 rounded-full bg-yellow-400"></span>
+                                    <span class="h-3 w-3 rounded-full bg-lime-300"></span>
+                                </div>
+                                <pre class="mt-6 overflow-x-auto text-sm leading-7 text-cyan-200"><code>POST /api/v1/studies/infer
 {
   "modality": "CT",
-  "region": "Thorax",
-  "priority": "high",
-  "anon_token": "vx_77821x..."
+  "region": "thorax",
+  "priority": "urgent",
+  "pipeline": ["triage", "segmentation", "draft"],
+  "routing": "on_prem"
 }
 
-// Response: 202 Accepted
-// Result: Volumetric Mask & Findings</code></pre>
-            </div>
-        </div>
-    </section>
+202 accepted
+queue_position: 02
+result_bundle:
+  - finding_score
+  - volumetric_mask
+  - report_suggestion</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <!-- Interoperabilidad -->
-    <section id="interoperabilidad" class="py-24 px-6">
-        <div class="max-w-7xl mx-auto text-center animate-on-scroll">
-            <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest" data-i18n="inter-title">Ecosistema Conectado
-            </h2>
+            <section id="contact" class="px-4 pb-20 pt-6 md:px-6 md:pb-28">
+                <div class="mx-auto max-w-7xl">
+                    <div class="line-frame-strong animate-on-scroll rounded-[2.2rem] px-6 py-10 md:px-10 md:py-12">
+                        <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+                            <div>
+                                <span class="eyebrow" data-i18n="cta-eyebrow">COMMING SOON</span>
+                                <h2 class="section-title mt-8 font-bold" data-i18n="cta-title">
+                                    Si la base te gusta, este layout ya esta listo para pulir con tu contenido final.
+                                </h2>
+                                <p class="muted mt-6 max-w-2xl text-lg leading-8" data-i18n="cta-body">
+                                    Queda preparado para sumar logos reales, screenshots del producto, casos de uso o
+                                    una version aun mas agresiva a nivel visual.
+                                </p>
+                            </div>
+                            <div class="grid gap-4">
+                                <a href="mailto:info@voxtenia.cl" class="button-primary w-full" data-i18n="cta-primary">
+                                    info@voxtenia.cl
+                                </a>
+                                <a href="#" class="button-secondary w-full justify-between">
+                                    <span data-i18n="cta-secondary">COMMING SOON</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="px-4 pb-10 md:px-6">
             <div
-                class="flex flex-wrap justify-center gap-12 opacity-40 grayscale hover:grayscale-0 transition duration-500">
-                <div class="flex flex-col items-center">
-                    <span class="text-2xl font-bold">DICOM</span>
-                    <span class="text-[10px] tracking-tighter">STANDARD</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-2xl font-bold">HL7</span>
-                    <span class="text-[10px] tracking-tighter">FHIR READY</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-2xl font-bold">PACS</span>
-                    <span class="text-[10px] tracking-tighter">GATEWAY</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-2xl font-bold">OHIF</span>
-                    <span class="text-[10px] tracking-tighter">VIEWER</span>
+                class="mx-auto flex max-w-7xl flex-col gap-4 border-t border-white/10 pt-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
+                <p data-i18n="footer-copy">COMMING SOON</p>
+                <div class="flex items-center gap-5">
+                    <a href="#" class="transition hover:text-cyan-200">LinkedIn</a>
+                    <a href="#" class="transition hover:text-cyan-200">GitHub</a>
+                    <a href="mailto:info@voxtenia.cl" class="transition hover:text-cyan-200">Email</a>
                 </div>
             </div>
-            <p class="mt-12 text-gray-500 max-w-2xl mx-auto italic text-sm" data-i18n="inter-p">
-                Anonimización local automática antes de la salida al cloud para cumplimiento estricto de la Ley 20.584
-                (Chile).
-            </p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contacto" class="py-12 border-t border-white/5">
-        <div
-            class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-            <div class="mb-8 md:mb-0">
-                <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
-                    <div
-                        class="w-6 h-6 border border-cyan-400 flex items-center justify-center text-[10px] font-bold text-cyan-400">
-                        V</div>
-                    <span class="text-lg font-bold tracking-widest uppercase">Voxtenia</span>
-                </div>
-                <p class="text-gray-500 text-xs" data-i18n="footer-copy">© 2026 Voxtenia SpA. Santiago, Chile. Todos los
-                    derechos reservados.</p>
-            </div>
-            <div class="flex space-x-6">
-                <a href="#" class="text-gray-400 hover:text-white transition"><i
-                        class="fa-brands fa-linkedin text-xl"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white transition"><i
-                        class="fa-brands fa-github text-xl"></i></a>
-                <a href="mailto:info@voxtenia.cl" class="text-gray-400 hover:text-white transition"><i
-                        class="fa-solid fa-envelope text-xl"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const translations = {
-            es: {
-                "nav-sol": "Soluciones",
-                "nav-tech": "Tecnología",
-                "nav-inter": "Interoperabilidad",
-                "nav-cta": "Piloto MVP",
-                "hero-t1": "Inteligencia",
-                "hero-t2": "Volumétrica",
-                "hero-t3": "para Diagnóstico Crítico",
-                "hero-p": "Asistencia diagnóstica de alta precisión mediante IA para MRI, CT y Rayos X. Segmentación automatizada y priorización de hallazgos en tiempo real.",
-                "hero-btn-demo": "Agendar Demo Técnica",
-                "hero-btn-api": "Documentación API",
-                "stat-1": "Precisión en Segmentación",
-                "stat-2": "Tiempo de Inferencia",
-                "stat-3": "Nativo y Compatible",
-                "stat-4": "Preparado para Regulación",
-                "sol-title": "Módulos Especializados",
-                "mod1-t": "Reporte Automático",
-                "mod1-p": "Generación de borradores radiológicos basados en detección automática de hallazgos.",
-                "mod2-t": "Triaging Urgente",
-                "mod2-p": "Priorización de estudios con sospecha de hemorragias o fracturas críticas.",
-                "mod3-t": "Segmentación 3D",
-                "mod3-p": "Cálculo automático de volúmenes de órganos y tumores en MRI y CT.",
-                "mod4-t": "Control de Calidad",
-                "mod4-p": "Detección de artefactos de movimiento o mala exposición clínica.",
-                "tech-title": "Built by Engineers, for Doctors.",
-                "tech-p": "Nuestra arquitectura está diseñada para la escalabilidad y la soberanía de datos. No somos solo una capa de IA, somos el motor de procesamiento.",
-                "tech-li1": "Core en Python/PyTorch con MONAI framework.",
-                "tech-li2": "Inferencia acelerada mediante NVIDIA Triton.",
-                "tech-li3": "Microservicios en Docker para despliegue On-Premise.",
-                "inter-title": "Ecosistema Conectado",
-                "inter-p": "Anonimización local automática antes de la salida al cloud para cumplimiento estricto de la Ley 20.584 (Chile).",
-                "footer-copy": "© 2026 Voxtenia SpA. Santiago, Chile. Todos los derechos reservados."
-            },
-            en: {
-                "nav-sol": "Solutions",
-                "nav-tech": "Technology",
-                "nav-inter": "Interoperability",
-                "nav-cta": "MVP Pilot",
-                "hero-t1": "Volumetric",
-                "hero-t2": "Intelligence",
-                "hero-t3": "for Critical Diagnosis",
-                "hero-p": "High-precision AI diagnostic assistance for MRI, CT, and X-Ray. Automated segmentation and real-time finding prioritization.",
-                "hero-btn-demo": "Schedule Technical Demo",
-                "hero-btn-api": "API Documentation",
-                "stat-1": "Segmentation Accuracy",
-                "stat-2": "Inference Time",
-                "stat-3": "Native & Compatible",
-                "stat-4": "Regulatory Ready",
-                "sol-title": "Specialized Modules",
-                "mod1-t": "Automated Reporting",
-                "mod1-p": "Generation of radiological drafts based on automated finding detection.",
-                "mod2-t": "Urgent Triaging",
-                "mod2-p": "Prioritization of studies with suspicion of hemorrhages or critical fractures.",
-                "mod3-t": "3D Segmentation",
-                "mod3-p": "Automated volume calculation for organs and tumors in MRI and CT.",
-                "mod4-t": "Quality Control",
-                "mod4-p": "Detection of motion artifacts or poor clinical exposure.",
-                "tech-title": "Built by Engineers, for Doctors.",
-                "tech-p": "Our architecture is designed for scalability and data sovereignty. We are not just an AI layer; we are the processing engine.",
-                "tech-li1": "Core in Python/PyTorch with MONAI framework.",
-                "tech-li2": "Accelerated inference using NVIDIA Triton.",
-                "tech-li3": "Dockerized microservices for On-Premise deployment.",
-                "inter-title": "Connected Ecosystem",
-                "inter-p": "Automatic local anonymization before cloud export for strict Law 20.584 (Chile) compliance.",
-                "footer-copy": "© 2026 Voxtenia SpA. Santiago, Chile. All rights reserved."
-            }
-        };
-
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-
-            // Actualizar botones de idioma
-            const btnEs = document.getElementById('lang-es');
-            const btnEn = document.getElementById('lang-en');
-
-            if (lang === 'es') {
-                btnEs.className = "px-2 py-1 text-[10px] font-bold rounded transition bg-cyan-500 text-black";
-                btnEn.className = "px-2 py-1 text-[10px] font-bold rounded transition text-gray-400 hover:text-white";
-            } else {
-                btnEn.className = "px-2 py-1 text-[10px] font-bold rounded transition bg-cyan-500 text-black";
-                btnEs.className = "px-2 py-1 text-[10px] font-bold rounded transition text-gray-400 hover:text-white";
-            }
-        }
-
-        // Animaciones en el scroll
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-                observer.observe(el);
-            });
-
-            // Disparar las animaciones iniciales que esten visibles (ej. Hero)
-            setTimeout(() => {
-                document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-                    const rect = el.getBoundingClientRect();
-                    if (rect.top < window.innerHeight) {
-                        el.classList.add('is-visible');
-                    }
-                });
-            }, 100);
-        });
-    </script>
+        </footer>
+    </div>
 </body>
 
 </html>
